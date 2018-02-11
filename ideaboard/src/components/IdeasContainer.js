@@ -71,7 +71,8 @@ class IdeasContainer extends Component {
   enableEditing = (id) => {
     this.setState({
       editingIdeaId: id
-    })
+    }, () => {this.title.focus()}) // we set focus as a second param in the callback
+    // to make sure that it gets called only after the component as been updated 
   }
 
   render(){
@@ -81,7 +82,7 @@ class IdeasContainer extends Component {
           // render editing form if idea id is equal to editing id
           if(this.state.editingIdeaId === idea.id) {
             return (<IdeaForm idea={idea} key={idea.id} updateIdea={this.updateIdea}
-            resetNotification={this.resetNotification}/>)
+            resetNotification={this.resetNotification} titleRef={input => this.title=input}/>)
           }
           else {
             return (<Idea idea={idea} key={idea.id} onClick={this.enableEditing}/>)
