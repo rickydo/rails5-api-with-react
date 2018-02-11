@@ -75,6 +75,16 @@ class IdeasContainer extends Component {
     // to make sure that it gets called only after the component as been updated
   }
 
+  deleteIdea = (id) => {
+    axios.delete(`http://localhost:3001/api/v1/ideas/${id}`)
+    .then(res => {
+      const ideaIndex = this.state.ideas.findIndex( x => x.id === id)
+      const ideas = update(this.state.ideas, { $splice: [[ideaIndex,1]]})
+      this.setState({ideas:ideas})
+    })
+    .catch(err => console.log(err))
+  }
+
   render(){
     return (
       <div>
@@ -86,7 +96,7 @@ class IdeasContainer extends Component {
           }
           else {
             return (<Idea idea={idea} key={idea.id} onClick={this.enableEditing}
-                      onDelete={this.props.deleteIdea}/>)
+                      onDelete={this.deleteIdea}/>)
           }
         })}
         <button className="newIdeaButton" onClick={this.addNewIdea}>
