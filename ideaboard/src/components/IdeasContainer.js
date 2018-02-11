@@ -40,7 +40,10 @@ class IdeasContainer extends Component {
       const ideas = update(this.state.ideas, {
         $splice: [[0,0,res.data]]
       })
-      this.setState({ideas: ideas})
+      this.setState({
+        ideas: ideas,
+        editingIdeaId: res.data.id // we added a new idea and we want to edit immediately 
+      })
     })
     .catch( err => console.log(err))
   }
