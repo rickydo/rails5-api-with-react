@@ -49,13 +49,22 @@ class IdeasContainer extends Component {
     .catch( err => console.log(err))
   }
 
+  updateIdea = (idea) => {
+    // first find index of edited idea in array
+    const ideaIndex = this.state.ideas.findIndex(x => x.id === idea.id)
+    const ideas = update(this.state.ideas, {
+      [ideaIndex]: {$set: idea} // use $set to replace the old value with new one
+    })
+    this.setState({ideas: ideas})
+  }
+
   render(){
     return (
       <div>
         {this.state.ideas.map((idea) => {
           // render editing form if idea id is equal to editing id
           if(this.state.editingIdeaId === idea.id) {
-            return (<IdeaForm idea={idea} key={idea.id}/>)
+            return (<IdeaForm idea={idea} key={idea.id} updateIdea={this.updateIdea}/>)
           }
           else {
             return (<Idea idea={idea} key={idea.id}/>)
@@ -64,6 +73,9 @@ class IdeasContainer extends Component {
         <button className="newIdeaButton" onClick={this.addNewIdea}>
           New Idea
         </button>
+        <span className="notification">
+          {this.state.notification}
+        </span>
       </div>
     )
   }
