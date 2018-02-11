@@ -10,7 +10,8 @@ class IdeasContainer extends Component {
     super(props)
     this.state = {
       ideas: [],
-      editingIdeaId: null
+      editingIdeaId: null,
+      notification: ''
     }
   }
 
@@ -55,7 +56,10 @@ class IdeasContainer extends Component {
     const ideas = update(this.state.ideas, {
       [ideaIndex]: {$set: idea} // use $set to replace the old value with new one
     })
-    this.setState({ideas: ideas})
+    this.setState({
+      ideas: ideas,
+      notification: 'All changes saved'
+    })
   }
 
   render(){
