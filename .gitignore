@@ -12,12 +12,11 @@
 /rails/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/rails/log/*
+rails log/*
 /rails/tmp/*
 !/rails/log/.keep
 !/rails/tmp/.keep
 
 /rails/.byebug_history
 
-rails\ /log/development.log
-rails\ /tmp/pids
+/rails/log/development.log

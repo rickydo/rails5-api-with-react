@@ -189,3 +189,15 @@ Processing by Api::V1::IdeasController#index as JSON
 Completed 200 OK in 10ms (Views: 6.6ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/api/v1/ideas.json" for ::1 at 2018-02-11 14:28:34 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (0.1ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/ideas.json" for ::1 at 2018-02-11 14:30:04 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
