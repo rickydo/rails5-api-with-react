@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Idea from './idea';
 import update from 'immutability-helper';
+import IdeaForm from './IdeaForm';
 import './../App.css';
 
 class IdeasContainer extends Component {
@@ -42,7 +43,7 @@ class IdeasContainer extends Component {
       })
       this.setState({
         ideas: ideas,
-        editingIdeaId: res.data.id // we added a new idea and we want to edit immediately 
+        editingIdeaId: res.data.id // we added a new idea and we want to edit immediately
       })
     })
     .catch( err => console.log(err))
@@ -52,9 +53,13 @@ class IdeasContainer extends Component {
     return (
       <div>
         {this.state.ideas.map((idea) => {
-          return (
-            <Idea idea={idea} key={idea.id}/>
-          )
+          // render editing form if idea id is equal to editing id
+          if(this.state.editingIdeaId == idea.id) {
+            return (<IdeaForm idea={idea} key={idea.id}/>)
+          }
+          else {
+            return (<Idea idea={idea} key={idea.id}/>)
+          }
         })}
         <button className="newIdeaButton" onClick={this.addNewIdea}>
           New Idea
