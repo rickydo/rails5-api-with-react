@@ -12,6 +12,7 @@ class IdeaForm extends Component {
   }
 
   handleInput = (e) => {
+    this.props.resetNotification()
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -33,7 +34,7 @@ class IdeaForm extends Component {
       console.log(res);
       // send edited data to IdeasContainer so that it can update its state too
       // otherwise state.ideas wont have updated value of the idea we just edited
-      
+
       this.props.updateIdea(res.data);
     })
     .catch(err => console.log(err))
