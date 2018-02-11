@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Idea from './idea';
+import './../App.css';
 
 class IdeasContainer extends Component {
   constructor(props){
@@ -29,6 +30,9 @@ class IdeasContainer extends Component {
             <Idea idea={idea} key={idea.id}/>
           )
         })}
+        <button className="newIdeaButton">
+          New Idea
+        </button>
       </div>
     )
   }
