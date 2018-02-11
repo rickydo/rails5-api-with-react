@@ -54,7 +54,7 @@ class IdeasContainer extends Component {
       <div>
         {this.state.ideas.map((idea) => {
           // render editing form if idea id is equal to editing id
-          if(this.state.editingIdeaId == idea.id) {
+          if(this.state.editingIdeaId === idea.id) {
             return (<IdeaForm idea={idea} key={idea.id}/>)
           }
           else {
