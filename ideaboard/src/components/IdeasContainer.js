@@ -8,7 +8,8 @@ class IdeasContainer extends Component {
   constructor(props){
     super(props)
     this.state = {
-      ideas: []
+      ideas: [],
+      editingIdeaId: null
     }
   }
 
@@ -34,6 +35,12 @@ class IdeasContainer extends Component {
     )
     .then(res => {
       console.log(res);
+      // make new copy of state ideas
+      // splice to insert new idea at beginning of array
+      const ideas = update(this.state.ideas, {
+        $splice: [[0,0,res.data]]
+      })
+      this.setState({ideas: ideas})
     })
     .catch( err => console.log(err))
   }
