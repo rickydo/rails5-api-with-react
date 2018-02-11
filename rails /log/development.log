@@ -201,3 +201,9 @@ Processing by Api::V1::IdeasController#index as JSON
 Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/api/v1/ideas.json" for ::1 at 2018-02-11 14:43:11 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (0.2ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+
+
