@@ -72,7 +72,7 @@ class IdeasContainer extends Component {
     this.setState({
       editingIdeaId: id
     }, () => {this.title.focus()}) // we set focus as a second param in the callback
-    // to make sure that it gets called only after the component as been updated 
+    // to make sure that it gets called only after the component as been updated
   }
 
   render(){
@@ -85,7 +85,8 @@ class IdeasContainer extends Component {
             resetNotification={this.resetNotification} titleRef={input => this.title=input}/>)
           }
           else {
-            return (<Idea idea={idea} key={idea.id} onClick={this.enableEditing}/>)
+            return (<Idea idea={idea} key={idea.id} onClick={this.enableEditing}
+                      onDelete={this.props.deleteIdea}/>)
           }
         })}
         <button className="newIdeaButton" onClick={this.addNewIdea}>
