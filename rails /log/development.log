@@ -147,3 +147,10 @@ Processing by Api::V1::IdeasController#index as HTML
 Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/api/v1/ideas" for ::1 at 2018-02-10 22:51:10 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::IdeasController#index as HTML
+  [1m[36mIdea Load (0.4ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas"[0m
+Completed 200 OK in 12ms (Views: 7.9ms | ActiveRecord: 1.1ms)
+
+
